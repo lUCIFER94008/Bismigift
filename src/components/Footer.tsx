@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Facebook, Instagram, MessageCircle } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -20,8 +20,10 @@ export const Footer: React.FC = () => {
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#0F0F0F] border border-pink-500/30 rounded-lg hover:bg-pink-500/20 hover:border-pink-400 transition">
                 <Instagram className="w-5 h-5 text-pink-400" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#0F0F0F] border border-[#4DA6FF]/30 rounded-lg hover:bg-[#4DA6FF]/20 hover:border-[#4DA6FF] transition">
-                <Twitter className="w-5 h-5 text-[#4DA6FF]" />
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#0F0F0F] border border-[#4DA6FF]/30 rounded-lg hover:bg-[#4DA6FF]/20 hover:border-[#4DA6FF] transition">
+                <svg className="w-5 h-5 text-[#4DA6FF]" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
               </a>
             </div>
           </div>
@@ -75,7 +77,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href="https://wa.me/919446651773"
+                  href="https://wa.me/919605773773?text=Hello%20New%20Bismi%20Gift%20House!%20I%20would%20like%20to%20inquire%20about%20your%20products.%20I%20am%20interested%20in%20placing%20an%20order."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-lg transition mt-2"

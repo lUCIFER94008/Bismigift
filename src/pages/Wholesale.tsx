@@ -260,7 +260,7 @@ export const Wholesale: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+919446651773"
+              href="tel:+919605773773"
               className="px-6 py-3 bg-white text-cyan-600 rounded-lg hover:bg-gray-100 transition"
             >
               Call: +91 9605773773

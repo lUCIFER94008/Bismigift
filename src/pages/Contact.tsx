@@ -189,7 +189,7 @@ export const Contact: React.FC = () => {
                 Get instant assistance via WhatsApp
               </p>
               <a
-                href="https://wa.me/919605773773"
+                href="https://wa.me/919605773773?text=Hello%20New%20Bismi%20Gift%20House!%20I%20need%20assistance%20and%20would%20like%20to%20get%20in%20touch%20with%20you."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white text-green-600 rounded-lg hover:bg-gray-100 transition"
