@@ -263,7 +263,7 @@ export const Wholesale: React.FC = () => {
               href="tel:+919446651773"
               className="px-6 py-3 bg-white text-cyan-600 rounded-lg hover:bg-gray-100 transition"
             >
-              Call: +91 94466 51773
+              Call: +91 9605773773
             </a>
             <a
               href="mailto:wholesale@bismigifthouse.com"

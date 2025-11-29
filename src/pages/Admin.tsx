@@ -159,33 +159,33 @@ export const Admin: React.FC = () => {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center px-4">
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 max-w-md w-full">
+      <div className="min-h-screen bg-[#0F0F0F] flex items-center justify-center px-4">
+        <div className="bg-[#1A1A1A] rounded-xl shadow-lg border border-[#4DA6FF]/20 p-8 max-w-md w-full">
           <div className="flex justify-center mb-6">
-            <div className="w-16 h-16 bg-gray-900 dark:bg-gray-700 rounded-full flex items-center justify-center">
-              <Lock className="w-8 h-8 text-white" />
+            <div className="w-16 h-16 bg-[#4DA6FF]/20 border border-[#4DA6FF]/40 rounded-full flex items-center justify-center">
+              <Lock className="w-8 h-8 text-[#4DA6FF]" />
             </div>
           </div>
-          <h1 className="text-2xl text-center mb-6 text-gray-900 dark:text-gray-100">Admin Login</h1>
+          <h1 className="text-2xl text-center mb-6 text-white">Admin Login</h1>
           <form onSubmit={handleLogin}>
             <div className="mb-6">
-              <label className="block mb-2 text-gray-700 dark:text-gray-300">Password</label>
+              <label className="block mb-2 text-[#B3B3B3]">Password</label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                className="w-full px-4 py-2 border border-[#4DA6FF]/30 rounded-lg bg-[#0F0F0F] text-white placeholder-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#4DA6FF]"
                 placeholder="Enter admin password"
                 required
               />
             </div>
             <button
               type="submit"
-              className="w-full px-6 py-3 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition"
+              className="w-full px-6 py-3 bg-[#4DA6FF] text-white rounded-lg hover:bg-[#4DA6FF]/80 transition"
             >
               Login
             </button>
-            <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 text-center">
+            <p className="mt-4 text-sm text-[#B3B3B3] text-center">
               Default password: admin123
             </p>
           </form>
@@ -195,12 +195,12 @@ export const Admin: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
+    <div className="min-h-screen bg-[#0F0F0F] py-8">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+        <div className="bg-[#1A1A1A] rounded-xl border border-[#4DA6FF]/20 shadow-md p-6 mb-8">
           <div className="flex items-center justify-between">
-            <h1 className="text-3xl text-gray-900 dark:text-gray-100">Admin Dashboard</h1>
+            <h1 className="text-3xl text-white">Admin Dashboard</h1>
             <button
               onClick={handleLogout}
               className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition"
@@ -212,14 +212,14 @@ export const Admin: React.FC = () => {
         </div>
 
         {/* Tabs */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md mb-8">
-          <div className="flex border-b border-gray-200 dark:border-gray-700">
+        <div className="bg-[#1A1A1A] rounded-xl border border-[#4DA6FF]/20 shadow-md mb-8">
+          <div className="flex border-b border-[#4DA6FF]/20">
             <button
               onClick={() => setActiveTab('products')}
               className={`flex items-center gap-2 px-6 py-4 transition ${
                 activeTab === 'products'
-                  ? 'border-b-2 border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100'
+                  ? 'border-b-2 border-[#4DA6FF] text-white'
+                  : 'text-[#B3B3B3] hover:text-white'
               }`}
             >
               <Package className="w-5 h-5" />
@@ -229,8 +229,8 @@ export const Admin: React.FC = () => {
               onClick={() => setActiveTab('orders')}
               className={`flex items-center gap-2 px-6 py-4 transition ${
                 activeTab === 'orders'
-                  ? 'border-b-2 border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100'
+                  ? 'border-b-2 border-[#4DA6FF] text-white'
+                  : 'text-[#B3B3B3] hover:text-white'
               }`}
             >
               <ShoppingCart className="w-5 h-5" />
@@ -263,7 +263,7 @@ export const Admin: React.FC = () => {
                       salePrice: ''
                     });
                   }}
-                  className="flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition"
+                  className="flex items-center gap-2 px-6 py-3 bg-[#4DA6FF] text-white rounded-lg hover:bg-[#4DA6FF]/80 transition"
                 >
                   <Plus className="w-5 h-5" />
                   Add New Product
@@ -273,41 +273,41 @@ export const Admin: React.FC = () => {
 
             {/* Product Form */}
             {showProductForm && (
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
-                <h2 className="text-2xl mb-6 text-gray-900 dark:text-gray-100">
+              <div className="bg-[#1A1A1A] border border-[#4DA6FF]/20 rounded-xl shadow-md p-6 mb-8">
+                <h2 className="text-2xl mb-6 text-white">
                   {editingProduct ? 'Edit Product' : 'Add New Product'}
                 </h2>
                 <form onSubmit={handleSubmitProduct} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block mb-2 text-gray-700 dark:text-gray-300">Product Name *</label>
+                      <label className="block mb-2 text-[#B3B3B3]">Product Name *</label>
                       <input
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                        className="w-full px-4 py-2 border border-[#4DA6FF]/30 rounded-lg bg-[#0F0F0F] text-white placeholder-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#4DA6FF]"
                         required
                       />
                     </div>
                     <div>
-                      <label className="block mb-2 text-gray-700 dark:text-gray-300">Price (₹) *</label>
+                      <label className="block mb-2 text-[#B3B3B3]">Price (₹) *</label>
                       <input
                         type="number"
                         name="price"
                         value={formData.price}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                        className="w-full px-4 py-2 border border-[#4DA6FF]/30 rounded-lg bg-[#0F0F0F] text-white placeholder-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#4DA6FF]"
                         required
                       />
                     </div>
                     <div>
-                      <label className="block mb-2 text-gray-700 dark:text-gray-300">Category *</label>
+                      <label className="block mb-2 text-[#B3B3B3]">Category *</label>
                       <select
                         name="category"
                         value={formData.category}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                        className="w-full px-4 py-2 border border-[#4DA6FF]/30 rounded-lg bg-[#0F0F0F] text-white focus:outline-none focus:ring-2 focus:ring-[#4DA6FF]"
                         required
                       >
                         <option value="Toys">Toys</option>
@@ -320,18 +320,18 @@ export const Admin: React.FC = () => {
                       </select>
                     </div>
                     <div>
-                      <label className="block mb-2 text-gray-700 dark:text-gray-300">Image URL</label>
+                      <label className="block mb-2 text-[#B3B3B3]">Image URL</label>
                       <input
                         type="url"
                         name="image"
                         value={formData.image}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                        className="w-full px-4 py-2 border border-[#4DA6FF]/30 rounded-lg bg-[#0F0F0F] text-white placeholder-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#4DA6FF]"
                         placeholder="https://example.com/image.jpg"
                       />
                     </div>
                     <div>
-                      <label className="block mb-2 text-gray-700 dark:text-gray-300">Rating (0-5)</label>
+                      <label className="block mb-2 text-[#B3B3B3]">Rating (0-5)</label>
                       <input
                         type="number"
                         name="rating"
@@ -340,41 +340,41 @@ export const Admin: React.FC = () => {
                         step="0.1"
                         min="0"
                         max="5"
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                        className="w-full px-4 py-2 border border-[#4DA6FF]/30 rounded-lg bg-[#0F0F0F] text-white placeholder-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#4DA6FF]"
                       />
                     </div>
                     <div>
-                      <label className="block mb-2 text-gray-700 dark:text-gray-300">Number of Reviews</label>
+                      <label className="block mb-2 text-[#B3B3B3]">Number of Reviews</label>
                       <input
                         type="number"
                         name="reviews"
                         value={formData.reviews}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                        className="w-full px-4 py-2 border border-[#4DA6FF]/30 rounded-lg bg-[#0F0F0F] text-white placeholder-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#4DA6FF]"
                       />
                     </div>
                   </div>
                   
                   <div>
-                    <label className="block mb-2 text-gray-700 dark:text-gray-300">Description *</label>
+                    <label className="block mb-2 text-[#B3B3B3]">Description *</label>
                     <textarea
                       name="description"
                       value={formData.description}
                       onChange={handleInputChange}
                       rows={3}
-                      className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                      className="w-full px-4 py-2 border border-[#4DA6FF]/30 rounded-lg bg-[#0F0F0F] text-white placeholder-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#4DA6FF]"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block mb-2 text-gray-700 dark:text-gray-300">Specifications (comma-separated)</label>
+                    <label className="block mb-2 text-[#B3B3B3]">Specifications (comma-separated)</label>
                     <input
                       type="text"
                       name="specifications"
                       value={formData.specifications}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                      className="w-full px-4 py-2 border border-[#4DA6FF]/30 rounded-lg bg-[#0F0F0F] text-white placeholder-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#4DA6FF]"
                       placeholder="Size: Large, Color: Red, Material: Plastic"
                     />
                   </div>
@@ -386,9 +386,9 @@ export const Admin: React.FC = () => {
                         name="isBestSeller"
                         checked={formData.isBestSeller}
                         onChange={handleInputChange}
-                        className="w-5 h-5"
+                        className="w-5 h-5 accent-[#4DA6FF]"
                       />
-                      <label className="text-gray-700 dark:text-gray-300">Best Seller</label>
+                      <label className="text-[#B3B3B3]">Best Seller</label>
                     </div>
                     <div className="flex items-center gap-2">
                       <input
@@ -396,9 +396,9 @@ export const Admin: React.FC = () => {
                         name="isOnSale"
                         checked={formData.isOnSale}
                         onChange={handleInputChange}
-                        className="w-5 h-5"
+                        className="w-5 h-5 accent-[#4DA6FF]"
                       />
-                      <label className="text-gray-700 dark:text-gray-300">On Sale</label>
+                      <label className="text-[#B3B3B3]">On Sale</label>
                     </div>
                     {formData.isOnSale && (
                       <div>
@@ -407,7 +407,7 @@ export const Admin: React.FC = () => {
                           name="salePrice"
                           value={formData.salePrice}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                          className="w-full px-4 py-2 border border-[#4DA6FF]/30 rounded-lg bg-[#0F0F0F] text-white placeholder-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#4DA6FF]"
                           placeholder="Sale Price"
                         />
                       </div>
@@ -417,7 +417,7 @@ export const Admin: React.FC = () => {
                   <div className="flex gap-4 pt-4">
                     <button
                       type="submit"
-                      className="px-6 py-3 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition"
+                      className="px-6 py-3 bg-[#4DA6FF] text-white rounded-lg hover:bg-[#4DA6FF]/80 transition"
                     >
                       {editingProduct ? 'Update Product' : 'Add Product'}
                     </button>
@@ -427,7 +427,7 @@ export const Admin: React.FC = () => {
                         setShowProductForm(false);
                         setEditingProduct(null);
                       }}
-                      className="px-6 py-3 bg-gray-300 dark:bg-gray-600 text-gray-900 dark:text-gray-100 rounded-lg hover:bg-gray-400 dark:hover:bg-gray-500 transition"
+                      className="px-6 py-3 bg-[#1A1A1A] border border-[#4DA6FF]/30 text-[#B3B3B3] rounded-lg hover:bg-[#0F0F0F] transition"
                     >
                       Cancel
                     </button>
@@ -437,44 +437,44 @@ export const Admin: React.FC = () => {
             )}
 
             {/* Products List */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+            <div className="bg-[#1A1A1A] border border-[#4DA6FF]/20 rounded-xl shadow-md overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-100 dark:bg-gray-700">
+                  <thead className="bg-[#0F0F0F]">
                     <tr>
-                      <th className="px-6 py-3 text-left text-gray-900 dark:text-gray-100">Image</th>
-                      <th className="px-6 py-3 text-left text-gray-900 dark:text-gray-100">Name</th>
-                      <th className="px-6 py-3 text-left text-gray-900 dark:text-gray-100">Category</th>
-                      <th className="px-6 py-3 text-left text-gray-900 dark:text-gray-100">Price</th>
-                      <th className="px-6 py-3 text-left text-gray-900 dark:text-gray-100">Status</th>
-                      <th className="px-6 py-3 text-left text-gray-900 dark:text-gray-100">Actions</th>
+                      <th className="px-6 py-3 text-left text-white">Image</th>
+                      <th className="px-6 py-3 text-left text-white">Name</th>
+                      <th className="px-6 py-3 text-left text-white">Category</th>
+                      <th className="px-6 py-3 text-left text-white">Price</th>
+                      <th className="px-6 py-3 text-left text-white">Status</th>
+                      <th className="px-6 py-3 text-left text-white">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {products.length === 0 ? (
                       <tr>
-                        <td colSpan={6} className="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
+                        <td colSpan={6} className="px-6 py-8 text-center text-[#B3B3B3]">
                           No products added yet. Click "Add New Product" to get started.
                         </td>
                       </tr>
                     ) : (
                       products.map((product) => (
-                        <tr key={product.id} className="border-t border-gray-200 dark:border-gray-700">
+                        <tr key={product.id} className="border-t border-[#4DA6FF]/20">
                           <td className="px-6 py-4">
                             <img src={product.image} alt={product.name} className="w-16 h-16 object-cover rounded" />
                           </td>
-                          <td className="px-6 py-4 text-gray-900 dark:text-gray-100">{product.name}</td>
-                          <td className="px-6 py-4 text-gray-600 dark:text-gray-400">{product.category}</td>
-                          <td className="px-6 py-4 text-gray-900 dark:text-gray-100">₹{product.price}</td>
+                          <td className="px-6 py-4 text-white">{product.name}</td>
+                          <td className="px-6 py-4 text-[#B3B3B3]">{product.category}</td>
+                          <td className="px-6 py-4 text-white">₹{product.price}</td>
                           <td className="px-6 py-4">
                             <div className="flex gap-2">
                               {product.isBestSeller && (
-                                <span className="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs rounded">
+                                <span className="px-2 py-1 bg-yellow-500/20 border border-yellow-500/30 text-yellow-400 text-xs rounded">
                                   Best Seller
                                 </span>
                               )}
                               {product.isOnSale && (
-                                <span className="px-2 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs rounded">
+                                <span className="px-2 py-1 bg-red-500/20 border border-red-500/30 text-red-400 text-xs rounded">
                                   On Sale
                                 </span>
                               )}
@@ -484,14 +484,14 @@ export const Admin: React.FC = () => {
                             <div className="flex gap-2">
                               <button
                                 onClick={() => handleEditProduct(product)}
-                                className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition"
+                                className="p-2 text-[#4DA6FF] hover:text-[#4DA6FF]/80 transition"
                                 title="Edit"
                               >
                                 <Edit className="w-5 h-5" />
                               </button>
                               <button
                                 onClick={() => handleDeleteProduct(product.id)}
-                                className="p-2 text-red-600 hover:text-red-700 transition"
+                                className="p-2 text-red-500 hover:text-red-600 transition"
                                 title="Delete"
                               >
                                 <Trash2 className="w-5 h-5" />
@@ -510,52 +510,52 @@ export const Admin: React.FC = () => {
 
         {/* Orders Tab */}
         {activeTab === 'orders' && (
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+          <div className="bg-[#1A1A1A] border border-[#4DA6FF]/20 rounded-xl shadow-md overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-100 dark:bg-gray-700">
+                <thead className="bg-[#0F0F0F]">
                   <tr>
-                    <th className="px-6 py-3 text-left text-gray-900 dark:text-gray-100">Order ID</th>
-                    <th className="px-6 py-3 text-left text-gray-900 dark:text-gray-100">Date</th>
-                    <th className="px-6 py-3 text-left text-gray-900 dark:text-gray-100">Customer</th>
-                    <th className="px-6 py-3 text-left text-gray-900 dark:text-gray-100">Items</th>
-                    <th className="px-6 py-3 text-left text-gray-900 dark:text-gray-100">Total</th>
-                    <th className="px-6 py-3 text-left text-gray-900 dark:text-gray-100">Status</th>
-                    <th className="px-6 py-3 text-left text-gray-900 dark:text-gray-100">Actions</th>
+                    <th className="px-6 py-3 text-left text-white">Order ID</th>
+                    <th className="px-6 py-3 text-left text-white">Date</th>
+                    <th className="px-6 py-3 text-left text-white">Customer</th>
+                    <th className="px-6 py-3 text-left text-white">Items</th>
+                    <th className="px-6 py-3 text-left text-white">Total</th>
+                    <th className="px-6 py-3 text-left text-white">Status</th>
+                    <th className="px-6 py-3 text-left text-white">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {orders.length === 0 ? (
                     <tr>
-                      <td colSpan={7} className="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
+                      <td colSpan={7} className="px-6 py-8 text-center text-[#B3B3B3]">
                         No orders yet.
                       </td>
                     </tr>
                   ) : (
                     orders.map((order) => (
-                      <tr key={order.id} className="border-t border-gray-200 dark:border-gray-700">
-                        <td className="px-6 py-4 text-gray-900 dark:text-gray-100">#{order.id.slice(0, 8)}</td>
-                        <td className="px-6 py-4 text-gray-600 dark:text-gray-400">
+                      <tr key={order.id} className="border-t border-[#4DA6FF]/20">
+                        <td className="px-6 py-4 text-white">#{order.id.slice(0, 8)}</td>
+                        <td className="px-6 py-4 text-[#B3B3B3]">
                           {new Date(order.date).toLocaleDateString()}
                         </td>
                         <td className="px-6 py-4">
-                          <div className="text-gray-900 dark:text-gray-100">{order.customerName || 'Guest'}</div>
-                          <div className="text-sm text-gray-500 dark:text-gray-400">{order.customerEmail}</div>
+                          <div className="text-white">{order.customerName || 'Guest'}</div>
+                          <div className="text-sm text-[#B3B3B3]">{order.customerEmail}</div>
                         </td>
-                        <td className="px-6 py-4 text-gray-600 dark:text-gray-400">{order.items.length} items</td>
-                        <td className="px-6 py-4 text-gray-900 dark:text-gray-100">₹{order.total}</td>
+                        <td className="px-6 py-4 text-[#B3B3B3]">{order.items.length} items</td>
+                        <td className="px-6 py-4 text-white">₹{order.total}</td>
                         <td className="px-6 py-4">
                           <select
                             value={order.status}
                             onChange={(e) => handleUpdateOrderStatus(order.id, e.target.value as Order['status'])}
-                            className={`px-3 py-1 rounded text-sm ${
+                            className={`px-3 py-1 rounded text-sm border ${
                               order.status === 'Processing'
-                                ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200'
+                                ? 'bg-yellow-500/20 border-yellow-500/30 text-yellow-400'
                                 : order.status === 'Shipped'
-                                ? 'bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200'
+                                ? 'bg-[#4DA6FF]/20 border-[#4DA6FF]/30 text-[#4DA6FF]'
                                 : order.status === 'Delivered'
-                                ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
-                                : 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
+                                ? 'bg-green-500/20 border-green-500/30 text-green-400'
+                                : 'bg-red-500/20 border-red-500/30 text-red-400'
                             }`}
                           >
                             <option value="Processing">Processing</option>
@@ -566,7 +566,7 @@ export const Admin: React.FC = () => {
                         </td>
                         <td className="px-6 py-4">
                           <button
-                            className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition"
+                            className="p-2 text-[#4DA6FF] hover:text-[#4DA6FF]/80 transition"
                             title="View Details"
                           >
                             <Eye className="w-5 h-5" />

@@ -179,7 +179,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     const newUser: User = {
       name: 'Guest User',
       email,
-      phone: '+91 94466 51773',
+      phone: '+91 9605773773',
       rewardPoints: 500,
       orders: [
         {

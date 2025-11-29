@@ -26,33 +26,33 @@ export const Home: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-[#0F0F0F]">
       {/* Admin Button - Fixed Position */}
       <Link
         to="/admin"
-        className="fixed top-20 right-4 z-50 p-3 bg-gray-900 hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all"
+        className="fixed top-20 right-4 z-50 p-3 bg-[#4DA6FF]/20 hover:bg-[#4DA6FF]/30 border border-[#4DA6FF]/40 text-[#4DA6FF] rounded-full shadow-lg hover:shadow-xl transition-all"
         title="Admin Login"
       >
         <Lock className="w-5 h-5" />
       </Link>
 
       {/* Hero Carousel */}
-      <section className="relative bg-gray-900 overflow-hidden">
+      <section className="relative bg-[#1A1A1A] overflow-hidden">
         <Carousel slides={carouselSlides} autoPlayInterval={4000} />
       </section>
 
       {/* Featured Categories */}
       <section className="py-16 container mx-auto px-4">
-        <h2 className="text-3xl text-center mb-12 text-gray-900 dark:text-gray-100">Shop by Category</h2>
+        <h2 className="text-3xl text-center mb-12 text-white">Shop by Category</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {categories.map((category) => (
             <Link
               key={category.slug}
               to={`/category/${category.slug}`}
-              className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all text-center"
+              className="group bg-[#1A1A1A] border border-[#4DA6FF]/20 rounded-xl p-6 shadow-md hover:shadow-xl hover:border-[#4DA6FF]/40 transition-all text-center"
             >
               <div className="text-5xl mb-4">{category.icon}</div>
-              <h3 className="text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition">
+              <h3 className="text-white group-hover:text-[#4DA6FF] transition">
                 {category.name}
               </h3>
             </Link>
@@ -61,15 +61,15 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Combo Gift Packs */}
-      <section className="py-16 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-900">
+      <section className="py-16 bg-[#1A1A1A]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl mb-4 text-gray-900 dark:text-gray-100">Special Combo Packs</h2>
-            <p className="text-gray-600 dark:text-gray-400">Curated gift bundles for every occasion</p>
+            <h2 className="text-3xl mb-4 text-white">Special Combo Packs</h2>
+            <p className="text-[#B3B3B3]">Curated gift bundles for every occasion</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {comboPacks.map((combo) => (
-              <div key={combo.id} className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+              <div key={combo.id} className="bg-[#0F0F0F] border border-[#4DA6FF]/20 rounded-xl overflow-hidden shadow-lg hover:shadow-xl hover:border-[#4DA6FF]/40 transition-all">
                 <div className="relative h-48">
                   <ImageWithFallback
                     src={combo.image}
@@ -81,20 +81,20 @@ export const Home: React.FC = () => {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl mb-3 text-gray-900 dark:text-gray-100">{combo.name}</h3>
-                  <ul className="mb-4 space-y-1 text-sm text-gray-600 dark:text-gray-400">
+                  <h3 className="text-xl mb-3 text-white">{combo.name}</h3>
+                  <ul className="mb-4 space-y-1 text-sm text-[#B3B3B3]">
                     {combo.items.map((item, index) => (
                       <li key={index} className="flex items-center gap-2">
-                        <Gift className="w-4 h-4 text-purple-500" />
+                        <Gift className="w-4 h-4 text-[#4DA6FF]" />
                         {item}
                       </li>
                     ))}
                   </ul>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl text-gray-900 dark:text-gray-100">₹{combo.price}</span>
+                    <span className="text-2xl text-white">₹{combo.price}</span>
                     <Link
                       to="/shop"
-                      className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition"
+                      className="px-4 py-2 bg-[#4DA6FF] hover:bg-[#4DA6FF]/80 text-white rounded-lg transition"
                     >
                       View Details
                     </Link>
@@ -110,12 +110,12 @@ export const Home: React.FC = () => {
       <section className="py-16 container mx-auto px-4">
         <div className="flex items-center justify-between mb-12">
           <div>
-            <h2 className="text-3xl mb-2 text-gray-900 dark:text-gray-100">Best Sellers</h2>
-            <p className="text-gray-600 dark:text-gray-400">Most loved by our customers</p>
+            <h2 className="text-3xl mb-2 text-white">Best Sellers</h2>
+            <p className="text-[#B3B3B3]">Most loved by our customers</p>
           </div>
           <Link
             to="/shop"
-            className="px-6 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition flex items-center gap-2"
+            className="px-6 py-2 text-[#B3B3B3] hover:bg-[#1A1A1A] hover:text-[#4DA6FF] border border-[#4DA6FF]/20 rounded-lg transition flex items-center gap-2"
           >
             View All
             <ArrowRight className="w-5 h-5" />
@@ -129,11 +129,11 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Special Offers */}
-      <section className="py-16 bg-gradient-to-br from-red-50 to-orange-50 dark:from-gray-800 dark:to-gray-900">
+      <section className="py-16 bg-[#1A1A1A]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl mb-4 text-gray-900 dark:text-gray-100">Special Offers</h2>
-            <p className="text-gray-600 dark:text-gray-400">Limited time deals you don't want to miss</p>
+            <h2 className="text-3xl mb-4 text-white">Special Offers</h2>
+            <p className="text-[#B3B3B3]">Limited time deals you don't want to miss</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             {saleProducts.map((product) => (
@@ -143,7 +143,7 @@ export const Home: React.FC = () => {
           <div className="text-center mt-12">
             <Link
               to="/shop"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-[#4DA6FF] hover:bg-[#4DA6FF]/80 text-white rounded-lg transition"
             >
               View All Offers
               <TrendingUp className="w-5 h-5" />
@@ -153,9 +153,9 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Customer Testimonials */}
-      <section className="py-16 bg-gray-100 dark:bg-gray-800">
+      <section className="py-16 bg-[#0F0F0F]">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl text-center mb-12 text-gray-900 dark:text-gray-100">What Our Customers Say</h2>
+          <h2 className="text-3xl text-center mb-12 text-white">What Our Customers Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
@@ -174,14 +174,14 @@ export const Home: React.FC = () => {
                 rating: 5
               }
             ].map((testimonial, index) => (
-              <div key={index} className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md">
+              <div key={index} className="bg-[#1A1A1A] border border-[#4DA6FF]/20 rounded-xl p-6 shadow-md">
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 mb-4 italic">"{testimonial.comment}"</p>
-                <p className="text-gray-900 dark:text-gray-100">- {testimonial.name}</p>
+                <p className="text-[#B3B3B3] mb-4 italic">"{testimonial.comment}"</p>
+                <p className="text-white">- {testimonial.name}</p>
               </div>
             ))}
           </div>

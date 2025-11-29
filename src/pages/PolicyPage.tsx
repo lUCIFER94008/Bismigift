@@ -284,7 +284,7 @@ const FAQContent = () => (
     <section>
       <h3 className="text-xl mb-2 text-gray-900 dark:text-gray-100">How do I contact customer support?</h3>
       <p>
-        You can reach us via email at info@bismigifthouse.com, call +91 94466 51773, or use the
+        You can reach us via email at info@bismigifthouse.com, call +91 9605773773, or use the
         live chat feature on our website.
       </p>
     </section>

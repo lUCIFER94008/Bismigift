@@ -35,7 +35,7 @@ export const LiveChat: React.FC = () => {
     
     // Order related
     if (lowerMessage.includes('order') || lowerMessage.includes('status') || lowerMessage.includes('track')) {
-      return '📦 To check your order status:\n\n1. Login to your account\n2. Go to "My Orders" section\n3. View all your order details\n\nFor immediate assistance, contact us on WhatsApp at 94466 51773!';
+      return '📦 To check your order status:\n\n1. Login to your account\n2. Go to "My Orders" section\n3. View all your order details\n\nFor immediate assistance, contact us on WhatsApp at 9605773773!';
     }
     
     // Shipping & Delivery
@@ -78,7 +78,7 @@ export const LiveChat: React.FC = () => {
     
     // Bulk orders
     if (lowerMessage.includes('bulk') || lowerMessage.includes('wholesale') || lowerMessage.includes('corporate')) {
-      return '📦 Wholesale & Bulk Orders:\n\n• Special discounts available\n• Corporate gifting solutions\n• Custom packaging options\n\nContact us on WhatsApp at 94466 51773 for bulk order enquiries!';
+      return '📦 Wholesale & Bulk Orders:\n\n• Special discounts available\n• Corporate gifting solutions\n• Custom packaging options\n\nContact us on WhatsApp at 9605773773 for bulk order enquiries!';
     }
     
     // Payment
@@ -88,7 +88,7 @@ export const LiveChat: React.FC = () => {
     
     // Contact
     if (lowerMessage.includes('contact') || lowerMessage.includes('phone') || lowerMessage.includes('whatsapp')) {
-      return '📞 Contact Us:\n\n• WhatsApp: +91 94466 51773\n• Available: 9 AM - 10 PM (All Days)\n\nClick the "Chat on WhatsApp" button below for instant support!';
+      return '📞 Contact Us:\n\n• WhatsApp: +91 9605773773\n• Available: 9 AM - 10 PM (All Days)\n\nClick the "Chat on WhatsApp" button below for instant support!';
     }
     
     // Thanks
@@ -97,7 +97,7 @@ export const LiveChat: React.FC = () => {
     }
     
     // Default response
-    return '🤖 Thank you for your message!\n\nFor personalized assistance, please:\n• Click "Chat on WhatsApp" below\n• Call us at 94466 51773\n\nOur team is ready to help you with all your gift, toy, and stationery needs!';
+    return '🤖 Thank you for your message!\n\nFor personalized assistance, please:\n• Click "Chat on WhatsApp" below\n• Call us at 9605773773\n\nOur team is ready to help you with all your gift, toy, and stationery needs!';
   };
 
   const handleSendMessage = (e: React.FormEvent) => {
@@ -151,7 +151,7 @@ export const LiveChat: React.FC = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/919446651773?text=Hello, I need assistance with New Bismi Gift House', '_blank');
+    window.open('https://wa.me/919605773773?text=Hello, I need assistance with New Bismi Gift House', '_blank');
   };
 
   return (
@@ -160,7 +160,7 @@ export const LiveChat: React.FC = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 p-3 sm:p-4 bg-gray-900 hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all z-50"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 p-3 sm:p-4 bg-[#4DA6FF] hover:bg-[#4DA6FF]/80 text-white rounded-full shadow-lg hover:shadow-xl transition-all z-50"
         >
           <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
@@ -168,40 +168,40 @@ export const LiveChat: React.FC = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-4 right-4 left-4 sm:left-auto sm:bottom-6 sm:right-6 w-auto sm:w-96 bg-white dark:bg-gray-800 rounded-lg shadow-2xl z-50 flex flex-col max-h-[85vh] sm:max-h-[600px]">
+        <div className="fixed bottom-4 right-4 left-4 sm:left-auto sm:bottom-6 sm:right-6 w-auto sm:w-96 bg-[#1A1A1A] border border-[#4DA6FF]/20 rounded-lg shadow-2xl z-50 flex flex-col max-h-[85vh] sm:max-h-[600px]">
           {/* Header */}
-          <div className="bg-gray-900 dark:bg-gray-700 text-white p-3 sm:p-4 rounded-t-lg flex items-center justify-between">
+          <div className="bg-[#4DA6FF] text-white p-3 sm:p-4 rounded-t-lg flex items-center justify-between">
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center">
                 <span className="text-xl sm:text-2xl">🎁</span>
               </div>
               <div>
                 <h3 className="text-sm sm:text-base">Bismi Gift House</h3>
-                <p className="text-[10px] sm:text-xs text-gray-300">We typically reply instantly</p>
+                <p className="text-[10px] sm:text-xs text-white/80">We typically reply instantly</p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1 hover:bg-gray-800 dark:hover:bg-gray-600 rounded transition"
+              className="p-1 hover:bg-white/20 rounded transition"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Messages Area */}
-          <div className="flex-1 p-3 sm:p-4 overflow-y-auto bg-gray-50 dark:bg-gray-900">
+          <div className="flex-1 p-3 sm:p-4 overflow-y-auto bg-[#0F0F0F]">
             <div className="space-y-2 sm:space-y-3">
               {messages.map((msg, index) => (
                 <div key={index} className={`flex gap-2 ${msg.isUser ? 'justify-end' : ''}`}>
                   {!msg.isUser && (
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gray-900 dark:bg-gray-700 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#4DA6FF] rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-xs sm:text-sm">B</span>
                     </div>
                   )}
                   <div className={`rounded-lg p-2.5 sm:p-3 max-w-[85%] sm:max-w-[80%] ${
                     msg.isUser 
-                      ? 'bg-gray-900 dark:bg-gray-700 text-white' 
-                      : 'bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow'
+                      ? 'bg-[#4DA6FF] text-white' 
+                      : 'bg-[#1A1A1A] border border-[#4DA6FF]/20 text-white shadow'
                   }`}>
                     <p className="text-xs sm:text-sm whitespace-pre-line">{msg.text}</p>
                   </div>
@@ -211,12 +211,12 @@ export const LiveChat: React.FC = () => {
               {/* Quick Replies - only show if it's the first message */}
               {messages.length === 1 && (
                 <div className="flex flex-col gap-2 pl-8 sm:pl-10">
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Quick replies:</p>
+                  <p className="text-xs text-[#B3B3B3]">Quick replies:</p>
                   {quickReplies.map((reply, index) => (
                     <button
                       key={index}
                       onClick={() => handleQuickReply(reply)}
-                      className="text-left px-2.5 py-1.5 sm:px-3 sm:py-2 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-xs sm:text-sm border border-gray-200 dark:border-gray-700 transition"
+                      className="text-left px-2.5 py-1.5 sm:px-3 sm:py-2 bg-[#1A1A1A] hover:bg-[#4DA6FF]/20 border border-[#4DA6FF]/30 text-white rounded-lg text-xs sm:text-sm transition"
                     >
                       {reply}
                     </button>
@@ -227,18 +227,18 @@ export const LiveChat: React.FC = () => {
           </div>
 
           {/* Input Area */}
-          <div className="p-3 sm:p-4 border-t border-gray-200 dark:border-gray-700">
+          <div className="p-3 sm:p-4 border-t border-[#4DA6FF]/20">
             <form onSubmit={handleSendMessage} className="flex gap-2 mb-2 sm:mb-3">
               <input
                 type="text"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Type your message..."
-                className="flex-1 px-2.5 py-2 sm:px-3 text-xs sm:text-sm border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                className="flex-1 px-2.5 py-2 sm:px-3 text-xs sm:text-sm border border-[#4DA6FF]/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4DA6FF] bg-[#0F0F0F] text-white placeholder-[#B3B3B3]"
               />
               <button
                 type="submit"
-                className="px-3 py-2 sm:px-4 bg-gray-900 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-gray-600 text-white rounded-lg transition"
+                className="px-3 py-2 sm:px-4 bg-[#4DA6FF] hover:bg-[#4DA6FF]/80 text-white rounded-lg transition"
               >
                 <Send className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
