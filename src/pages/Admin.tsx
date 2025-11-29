@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Package, ShoppingCart, Lock, LogOut, Plus, Edit, Trash2, Eye } from 'lucide-react';
+import { Package, ShoppingCart, Lock, LogOut, Plus, Edit, Trash2, Eye, Upload, Image } from 'lucide-react';
 import { Product } from '../data/products';
 
 interface Order {
@@ -39,6 +39,9 @@ export const Admin: React.FC = () => {
     salePrice: ''
   });
 
+  const [imageSearchQuery, setImageSearchQuery] = useState('');
+  const [isSearchingImage, setIsSearchingImage] = useState(false);
+
   // Load products and orders from localStorage
   useEffect(() => {
     const savedProducts = localStorage.getItem('adminProducts');
@@ -74,6 +77,51 @@ export const Admin: React.FC = () => {
       setFormData(prev => ({ ...prev, [name]: checked }));
     } else {
       setFormData(prev => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const handleSearchImage = async () => {
+    if (!imageSearchQuery.trim()) {
+      alert('Please enter a search term for the product image');
+      return;
+    }
+    
+    setIsSearchingImage(true);
+    try {
+      // Using Unsplash API to get relevant product images
+      const response = await fetch(`https://api.unsplash.com/search/photos?query=${encodeURIComponent(imageSearchQuery)}&per_page=1&client_id=demo`);
+      const data = await response.json();
+      
+      if (data.results && data.results.length > 0) {
+        const imageUrl = data.results[0].urls.regular;
+        setFormData(prev => ({ ...prev, image: imageUrl }));
+        setImageSearchQuery('');
+      } else {
+        // Fallback to a constructed Unsplash URL
+        const fallbackUrl = `https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=500&q=80`;
+        setFormData(prev => ({ ...prev, image: fallbackUrl }));
+      }
+    } catch (error) {
+      console.error('Error fetching image:', error);
+      // Use a default placeholder
+      const fallbackUrl = `https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=500&q=80`;
+      setFormData(prev => ({ ...prev, image: fallbackUrl }));
+    } finally {
+      setIsSearchingImage(false);
+    }
+  };
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      // Create a local URL for the uploaded image
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        if (event.target?.result) {
+          setFormData(prev => ({ ...prev, image: event.target!.result as string }));
+        }
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -319,16 +367,72 @@ export const Admin: React.FC = () => {
                         <option value="Gift Items">Gift Items</option>
                       </select>
                     </div>
-                    <div>
-                      <label className="block mb-2 text-[#B3B3B3]">Image URL</label>
+                    <div className="md:col-span-2">
+                      <label className="block mb-2 text-[#B3B3B3]">Product Image</label>
+                      
+                      {/* Image Preview */}
+                      {formData.image && (
+                        <div className="mb-3">
+                          <img 
+                            src={formData.image} 
+                            alt="Product preview" 
+                            className="w-32 h-32 object-cover rounded-lg border border-[#4DA6FF]/30"
+                          />
+                        </div>
+                      )}
+                      
+                      {/* Image URL Input */}
                       <input
                         type="url"
                         name="image"
                         value={formData.image}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-2 border border-[#4DA6FF]/30 rounded-lg bg-[#0F0F0F] text-white placeholder-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#4DA6FF]"
-                        placeholder="https://example.com/image.jpg"
+                        className="w-full px-4 py-2 border border-[#4DA6FF]/30 rounded-lg bg-[#0F0F0F] text-white placeholder-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#4DA6FF] mb-3"
+                        placeholder="https://example.com/image.jpg or paste image URL"
                       />
+                      
+                      <div className="flex gap-3">
+                        {/* File Upload */}
+                        <div className="flex-1">
+                          <label className="flex items-center justify-center gap-2 px-4 py-2 border border-[#4DA6FF]/30 rounded-lg bg-[#0F0F0F] text-[#B3B3B3] hover:bg-[#1A1A1A] cursor-pointer transition">
+                            <Upload className="w-4 h-4" />
+                            <span>Upload Image</span>
+                            <input
+                              type="file"
+                              accept="image/*"
+                              onChange={handleFileUpload}
+                              className="hidden"
+                            />
+                          </label>
+                        </div>
+                        
+                        {/* OR Text */}
+                        <div className="flex items-center text-[#B3B3B3]">OR</div>
+                        
+                        {/* Search Unsplash */}
+                        <div className="flex-1 flex gap-2">
+                          <input
+                            type="text"
+                            value={imageSearchQuery}
+                            onChange={(e) => setImageSearchQuery(e.target.value)}
+                            placeholder="Search product images..."
+                            className="flex-1 px-4 py-2 border border-[#4DA6FF]/30 rounded-lg bg-[#0F0F0F] text-white placeholder-[#B3B3B3] focus:outline-none focus:ring-2 focus:ring-[#4DA6FF]"
+                            onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleSearchImage())}
+                          />
+                          <button
+                            type="button"
+                            onClick={handleSearchImage}
+                            disabled={isSearchingImage}
+                            className="px-4 py-2 bg-[#4DA6FF] text-white rounded-lg hover:bg-[#4DA6FF]/80 transition disabled:opacity-50 flex items-center gap-2"
+                          >
+                            <Image className="w-4 h-4" />
+                            {isSearchingImage ? 'Searching...' : 'Find'}
+                          </button>
+                        </div>
+                      </div>
+                      <p className="mt-2 text-xs text-[#B3B3B3]">
+                        Upload your own image, paste a URL, or search for product images from Unsplash
+                      </p>
                     </div>
                     <div>
                       <label className="block mb-2 text-[#B3B3B3]">Rating (0-5)</label>

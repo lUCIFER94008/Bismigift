@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, ShoppingCart, User, Menu, X, Moon, Sun, Heart } from 'lucide-react';
+import { Search, ShoppingCart, User, Menu, X, Heart } from 'lucide-react';
 import { useApp } from '../contexts/AppContext';
 
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const { cart, darkMode, toggleDarkMode, user, wishlist } = useApp();
+  const { cart, user, wishlist } = useApp();
   const navigate = useNavigate();
 
   const cartItemsCount = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -29,7 +29,7 @@ export const Header: React.FC = () => {
           
           {/* Store Name - Centered */}
           <Link to="/" className="flex items-center justify-center flex-1">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-wider hover:text-[#4DA6FF] transition">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-wider neon-text animate-glow">
               NEW BISMI GIFT HOUSE
             </h1>
           </Link>
@@ -38,15 +38,6 @@ export const Header: React.FC = () => {
 
           {/* Right Side Icons */}
           <div className="flex items-center space-x-2 md:space-x-4">
-            {/* Dark Mode Toggle */}
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-lg hover:bg-[#4DA6FF]/20 text-[#B3B3B3] hover:text-[#4DA6FF] transition"
-              aria-label="Toggle dark mode"
-            >
-              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
-
             {/* Wishlist */}
             <Link
               to="/account/wishlist"

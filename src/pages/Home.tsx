@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Award, Gift, TrendingUp, Star, Lock } from 'lucide-react';
+import { ArrowRight, Award, Gift, TrendingUp, Star } from 'lucide-react';
 import { ProductCard } from '../components/ProductCard';
 import { products, categories, comboPacks } from '../data/products';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
@@ -27,15 +27,6 @@ export const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#0F0F0F]">
-      {/* Admin Button - Fixed Position */}
-      <Link
-        to="/admin"
-        className="fixed top-20 right-4 z-50 p-3 bg-[#4DA6FF]/20 hover:bg-[#4DA6FF]/30 border border-[#4DA6FF]/40 text-[#4DA6FF] rounded-full shadow-lg hover:shadow-xl transition-all"
-        title="Admin Login"
-      >
-        <Lock className="w-5 h-5" />
-      </Link>
-
       {/* Hero Carousel */}
       <section className="relative bg-[#1A1A1A] overflow-hidden">
         <Carousel slides={carouselSlides} autoPlayInterval={4000} />

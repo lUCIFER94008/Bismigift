@@ -212,3 +212,55 @@ html {
   --minimal-text-secondary: #B3B3B3;
   --minimal-accent: #4DA6FF;
 }
+
+/* Neon Glittery Text Effect - Subtle Version */
+.neon-text {
+  color: #E6E6E6;
+  text-shadow: 
+    0 0 3px rgba(255, 255, 255, 0.4),
+    0 0 6px rgba(255, 255, 255, 0.3),
+    0 0 10px rgba(77, 166, 255, 0.4),
+    0 0 20px rgba(77, 166, 255, 0.3),
+    0 0 35px rgba(77, 166, 255, 0.2);
+  animation: flicker 3s infinite alternate, sparkle 2s infinite;
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.4),
+      0 0 6px rgba(255, 255, 255, 0.3),
+      0 0 10px rgba(77, 166, 255, 0.4),
+      0 0 20px rgba(77, 166, 255, 0.3),
+      0 0 35px rgba(77, 166, 255, 0.2);
+  }
+  20%, 24%, 55% {
+    text-shadow: 
+      0 0 2px rgba(255, 255, 255, 0.3),
+      0 0 4px rgba(255, 255, 255, 0.2),
+      0 0 8px rgba(77, 166, 255, 0.3),
+      0 0 15px rgba(77, 166, 255, 0.2);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    filter: brightness(0.95) saturate(1);
+  }
+  50% {
+    filter: brightness(1.05) saturate(1.1);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}

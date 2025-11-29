@@ -17,10 +17,10 @@ export const ProductDetails: React.FC = () => {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-[#0F0F0F] flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl mb-4 text-gray-900 dark:text-gray-100">Product not found</h1>
-          <Link to="/shop" className="text-cyan-600 hover:underline">
+          <h1 className="text-2xl mb-4 text-white">Product not found</h1>
+          <Link to="/shop" className="text-[#4DA6FF] hover:underline">
             Back to Shop
           </Link>
         </div>
@@ -70,26 +70,26 @@ export const ProductDetails: React.FC = () => {
   const giftWrappingCost = giftWrapping ? 50 * quantity : 0;
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
+    <div className="min-h-screen bg-[#0F0F0F] py-8">
       <div className="container mx-auto px-4">
         {/* Breadcrumb */}
-        <div className="mb-6 text-sm text-gray-600 dark:text-gray-400">
-          <Link to="/" className="hover:text-cyan-600">Home</Link>
+        <div className="mb-6 text-sm text-[#B3B3B3]">
+          <Link to="/" className="hover:text-[#4DA6FF]">Home</Link>
           <span className="mx-2">/</span>
-          <Link to="/shop" className="hover:text-cyan-600">Shop</Link>
+          <Link to="/shop" className="hover:text-[#4DA6FF]">Shop</Link>
           <span className="mx-2">/</span>
-          <Link to={`/category/${product.category.toLowerCase().replace(/ /g, '-')}`} className="hover:text-cyan-600">
+          <Link to={`/category/${product.category.toLowerCase().replace(/ /g, '-')}`} className="hover:text-[#4DA6FF]">
             {product.category}
           </Link>
           <span className="mx-2">/</span>
-          <span className="text-gray-900 dark:text-gray-100">{product.name}</span>
+          <span className="text-white">{product.name}</span>
         </div>
 
         {/* Product Details */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Image */}
           <div className="relative">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg sticky top-24">
+            <div className="bg-[#1A1A1A] rounded-2xl overflow-hidden shadow-lg sticky top-24 border border-[#333333]">
               <div className="aspect-square">
                 <ImageWithFallback
                   src={product.image}
@@ -114,10 +114,10 @@ export const ProductDetails: React.FC = () => {
           {/* Details */}
           <div>
             {/* Category */}
-            <p className="text-cyan-600 dark:text-cyan-400 mb-2">{product.category}</p>
+            <p className="text-[#4DA6FF] mb-2">{product.category}</p>
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl mb-4 text-gray-900 dark:text-gray-100">{product.name}</h1>
+            <h1 className="text-3xl md:text-4xl mb-4 text-white">{product.name}</h1>
 
             {/* Rating */}
             <div className="flex items-center gap-3 mb-6">
@@ -128,25 +128,25 @@ export const ProductDetails: React.FC = () => {
                     className={`w-5 h-5 ${
                       i < Math.floor(product.rating)
                         ? 'fill-yellow-400 text-yellow-400'
-                        : 'text-gray-300 dark:text-gray-600'
+                        : 'text-[#333333]'
                     }`}
                   />
                 ))}
               </div>
-              <span className="text-gray-700 dark:text-gray-300">{product.rating}</span>
-              <span className="text-gray-500 dark:text-gray-400">({product.reviews} reviews)</span>
+              <span className="text-[#B3B3B3]">{product.rating}</span>
+              <span className="text-[#666666]">({product.reviews} reviews)</span>
             </div>
 
             {/* Price */}
             <div className="mb-6">
               <div className="flex items-center gap-4">
-                <span className="text-4xl text-cyan-600 dark:text-cyan-400">₹{displayPrice}</span>
+                <span className="text-4xl text-[#4DA6FF]">₹{displayPrice}</span>
                 {product.isOnSale && (
-                  <span className="text-2xl text-gray-500 dark:text-gray-400 line-through">₹{product.price}</span>
+                  <span className="text-2xl text-[#666666] line-through">₹{product.price}</span>
                 )}
               </div>
               {product.isOnSale && (
-                <p className="text-green-600 dark:text-green-400 mt-2">
+                <p className="text-green-400 mt-2">
                   You save ₹{product.price - product.salePrice!} ({Math.round(((product.price - product.salePrice!) / product.price) * 100)}% off)
                 </p>
               )}
@@ -154,18 +154,18 @@ export const ProductDetails: React.FC = () => {
 
             {/* Description */}
             <div className="mb-6">
-              <h2 className="text-xl mb-3 text-gray-900 dark:text-gray-100">Description</h2>
-              <p className="text-gray-700 dark:text-gray-300">{product.description}</p>
+              <h2 className="text-xl mb-3 text-white">Description</h2>
+              <p className="text-[#B3B3B3]">{product.description}</p>
             </div>
 
             {/* Specifications */}
             {product.specifications && (
               <div className="mb-6">
-                <h2 className="text-xl mb-3 text-gray-900 dark:text-gray-100">Specifications</h2>
+                <h2 className="text-xl mb-3 text-white">Specifications</h2>
                 <ul className="space-y-2">
                   {product.specifications.map((spec, index) => (
-                    <li key={index} className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-                      <Package className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
+                    <li key={index} className="flex items-center gap-2 text-[#B3B3B3]">
+                      <Package className="w-5 h-5 text-[#4DA6FF]" />
                       {spec}
                     </li>
                   ))}
@@ -175,18 +175,18 @@ export const ProductDetails: React.FC = () => {
 
             {/* Quantity Selector */}
             <div className="mb-6">
-              <label className="block mb-2 text-gray-900 dark:text-gray-100">Quantity</label>
+              <label className="block mb-2 text-white">Quantity</label>
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-10 h-10 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg"
+                  className="w-10 h-10 bg-[#1A1A1A] hover:bg-[#4DA6FF]/20 text-white rounded-lg border border-[#333333]"
                 >
                   -
                 </button>
-                <span className="text-xl text-gray-900 dark:text-gray-100">{quantity}</span>
+                <span className="text-xl text-white">{quantity}</span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className="w-10 h-10 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg"
+                  className="w-10 h-10 bg-[#1A1A1A] hover:bg-[#4DA6FF]/20 text-white rounded-lg border border-[#333333]"
                 >
                   +
                 </button>
@@ -194,21 +194,21 @@ export const ProductDetails: React.FC = () => {
             </div>
 
             {/* Gift Wrapping */}
-            <div className="mb-6 p-4 bg-purple-50 dark:bg-gray-800 rounded-lg border-2 border-purple-200 dark:border-purple-900">
+            <div className="mb-6 p-4 bg-[#1A1A1A] rounded-lg border-2 border-purple-500/30">
               <label className="flex items-center gap-3 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={giftWrapping}
                   onChange={(e) => setGiftWrapping(e.target.checked)}
-                  className="w-5 h-5 text-purple-600"
+                  className="w-5 h-5 text-purple-600 accent-purple-600"
                 />
-                <Gift className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                <Gift className="w-6 h-6 text-purple-400" />
                 <div className="flex-1">
-                  <span className="text-gray-900 dark:text-gray-100">Add Gift Wrapping</span>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">+ ₹50 per item</p>
+                  <span className="text-white">Add Gift Wrapping</span>
+                  <p className="text-sm text-[#B3B3B3]">+ ₹50 per item</p>
                 </div>
                 {giftWrapping && (
-                  <span className="text-purple-600 dark:text-purple-400">+ ₹{giftWrappingCost}</span>
+                  <span className="text-purple-400">+ ₹{giftWrappingCost}</span>
                 )}
               </label>
             </div>
@@ -217,7 +217,7 @@ export const ProductDetails: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <button
                 onClick={handleAddToCart}
-                className="flex-1 px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg flex items-center justify-center gap-2 transition"
+                className="flex-1 px-6 py-3 bg-[#4DA6FF] hover:bg-[#3D8FE6] text-white rounded-lg flex items-center justify-center gap-2 transition"
               >
                 <ShoppingCart className="w-5 h-5" />
                 Add to Cart
@@ -235,8 +235,8 @@ export const ProductDetails: React.FC = () => {
                 onClick={handleWishlist}
                 className={`flex-1 px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition ${
                   inWishlist
-                    ? 'bg-red-100 dark:bg-red-900 text-red-600 dark:text-red-400'
-                    : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+                    ? 'bg-red-500/20 text-red-400 border border-red-500/30'
+                    : 'bg-[#1A1A1A] text-[#B3B3B3] hover:bg-[#4DA6FF]/20 border border-[#333333]'
                 }`}
               >
                 <Heart className={`w-5 h-5 ${inWishlist ? 'fill-current' : ''}`} />
@@ -244,7 +244,7 @@ export const ProductDetails: React.FC = () => {
               </button>
               <button
                 onClick={handleShare}
-                className="px-6 py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg flex items-center gap-2 transition"
+                className="px-6 py-3 bg-[#1A1A1A] hover:bg-[#4DA6FF]/20 text-[#B3B3B3] rounded-lg flex items-center gap-2 transition border border-[#333333]"
               >
                 <Share2 className="w-5 h-5" />
                 Share
@@ -252,26 +252,26 @@ export const ProductDetails: React.FC = () => {
             </div>
 
             {/* Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-[#333333]">
               <div className="flex items-center gap-3">
-                <Truck className="w-8 h-8 text-cyan-600 dark:text-cyan-400" />
+                <Truck className="w-8 h-8 text-[#4DA6FF]" />
                 <div>
-                  <p className="text-sm text-gray-900 dark:text-gray-100">Fast Delivery</p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">2-5 days</p>
+                  <p className="text-sm text-white">Fast Delivery</p>
+                  <p className="text-xs text-[#B3B3B3]">2-5 days</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Shield className="w-8 h-8 text-green-600 dark:text-green-400" />
+                <Shield className="w-8 h-8 text-green-400" />
                 <div>
-                  <p className="text-sm text-gray-900 dark:text-gray-100">Secure Payment</p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">100% Safe</p>
+                  <p className="text-sm text-white">Secure Payment</p>
+                  <p className="text-xs text-[#B3B3B3]">100% Safe</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Package className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+                <Package className="w-8 h-8 text-purple-400" />
                 <div>
-                  <p className="text-sm text-gray-900 dark:text-gray-100">Easy Returns</p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">7 days</p>
+                  <p className="text-sm text-white">Easy Returns</p>
+                  <p className="text-xs text-[#B3B3B3]">7 days</p>
                 </div>
               </div>
             </div>
@@ -281,7 +281,7 @@ export const ProductDetails: React.FC = () => {
         {/* Related Products */}
         {relatedProducts.length > 0 && (
           <section>
-            <h2 className="text-2xl mb-8 text-gray-900 dark:text-gray-100">Related Products</h2>
+            <h2 className="text-2xl mb-8 text-white">Related Products</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {relatedProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />

@@ -80,7 +80,7 @@ export const Shop: React.FC = () => {
     <div className="space-y-6">
       {/* Category Filter */}
       <div>
-        <h3 className="text-lg mb-3 text-gray-900 dark:text-gray-100">Category</h3>
+        <h3 className="text-lg mb-3 text-white">Category</h3>
         <div className="space-y-2">
           <label className="flex items-center space-x-2 cursor-pointer">
             <input
@@ -88,9 +88,9 @@ export const Shop: React.FC = () => {
               name="category"
               checked={selectedCategory === 'all'}
               onChange={() => setSelectedCategory('all')}
-              className="text-cyan-600"
+              className="text-[#4DA6FF]"
             />
-            <span className="text-gray-700 dark:text-gray-300">All Categories</span>
+            <span className="text-[#B3B3B3]">All Categories</span>
           </label>
           {categories.map((cat) => (
             <label key={cat.slug} className="flex items-center space-x-2 cursor-pointer">
@@ -99,9 +99,9 @@ export const Shop: React.FC = () => {
                 name="category"
                 checked={selectedCategory === cat.name}
                 onChange={() => setSelectedCategory(cat.name)}
-                className="text-cyan-600"
+                className="text-[#4DA6FF]"
               />
-              <span className="text-gray-700 dark:text-gray-300">{cat.name}</span>
+              <span className="text-[#B3B3B3]">{cat.name}</span>
             </label>
           ))}
         </div>
@@ -109,7 +109,7 @@ export const Shop: React.FC = () => {
 
       {/* Price Range */}
       <div>
-        <h3 className="text-lg mb-3 text-gray-900 dark:text-gray-100">Price Range</h3>
+        <h3 className="text-lg mb-3 text-white">Price Range</h3>
         <div className="space-y-3">
           <input
             type="range"
@@ -118,9 +118,9 @@ export const Shop: React.FC = () => {
             step="100"
             value={priceRange[1]}
             onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
-            className="w-full"
+            className="w-full accent-[#4DA6FF]"
           />
-          <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex justify-between text-sm text-[#B3B3B3]">
             <span>₹{priceRange[0]}</span>
             <span>₹{priceRange[1]}</span>
           </div>
@@ -129,7 +129,7 @@ export const Shop: React.FC = () => {
 
       {/* Rating Filter */}
       <div>
-        <h3 className="text-lg mb-3 text-gray-900 dark:text-gray-100">Minimum Rating</h3>
+        <h3 className="text-lg mb-3 text-white">Minimum Rating</h3>
         <div className="space-y-2">
           {[4, 3, 2, 1, 0].map((rating) => (
             <label key={rating} className="flex items-center space-x-2 cursor-pointer">
@@ -138,9 +138,9 @@ export const Shop: React.FC = () => {
                 name="rating"
                 checked={minRating === rating}
                 onChange={() => setMinRating(rating)}
-                className="text-cyan-600"
+                className="text-[#4DA6FF]"
               />
-              <span className="text-gray-700 dark:text-gray-300">
+              <span className="text-[#B3B3B3]">
                 {rating === 0 ? 'All Ratings' : `${rating}+ Stars`}
               </span>
             </label>
@@ -151,7 +151,7 @@ export const Shop: React.FC = () => {
       {/* Reset Filters */}
       <button
         onClick={resetFilters}
-        className="w-full px-4 py-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100 rounded-lg transition"
+        className="w-full px-4 py-2 bg-[#1A1A1A] hover:bg-[#4DA6FF]/20 text-white rounded-lg transition border border-[#333333]"
       >
         Reset Filters
       </button>
@@ -164,10 +164,10 @@ export const Shop: React.FC = () => {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl mb-2 text-gray-900 dark:text-gray-100">
+            <h1 className="text-3xl mb-2 text-white">
               {searchQuery ? `Search Results for "${searchQuery}"` : 'Shop All Products'}
             </h1>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-[#B3B3B3]">
               {filteredProducts.length} products found
             </p>
           </div>
@@ -177,7 +177,7 @@ export const Shop: React.FC = () => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              className="px-4 py-2 border border-[#333333] rounded-lg bg-[#1A1A1A] text-white focus:outline-none focus:ring-2 focus:ring-[#4DA6FF]"
             >
               <option value="featured">Featured</option>
               <option value="price-low">Price: Low to High</option>
@@ -189,7 +189,7 @@ export const Shop: React.FC = () => {
             {/* Mobile Filter Toggle */}
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="lg:hidden px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg flex items-center gap-2"
+              className="lg:hidden px-4 py-2 bg-[#4DA6FF] hover:bg-[#3D8FE6] text-white rounded-lg flex items-center gap-2"
             >
               <Filter className="w-5 h-5" />
               Filters
@@ -201,7 +201,7 @@ export const Shop: React.FC = () => {
         <div className="flex gap-8">
           {/* Sidebar Filters - Desktop */}
           <aside className="hidden lg:block w-64 flex-shrink-0">
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md sticky top-24">
+            <div className="bg-[#1A1A1A] rounded-xl p-6 shadow-md sticky top-24 border border-[#333333]">
               <FilterPanel />
             </div>
           </aside>
@@ -210,14 +210,14 @@ export const Shop: React.FC = () => {
           {showFilters && (
             <div className="lg:hidden fixed inset-0 z-50 bg-black bg-opacity-50" onClick={() => setShowFilters(false)}>
               <div
-                className="absolute right-0 top-0 h-full w-80 bg-white dark:bg-gray-800 shadow-xl overflow-y-auto"
+                className="absolute right-0 top-0 h-full w-80 bg-[#1A1A1A] shadow-xl overflow-y-auto"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-xl text-gray-900 dark:text-gray-100">Filters</h2>
+                    <h2 className="text-xl text-white">Filters</h2>
                     <button onClick={() => setShowFilters(false)}>
-                      <X className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+                      <X className="w-6 h-6 text-[#B3B3B3]" />
                     </button>
                   </div>
                   <FilterPanel />
@@ -236,10 +236,10 @@ export const Shop: React.FC = () => {
               </div>
             ) : (
               <div className="text-center py-16">
-                <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">No products found</p>
+                <p className="text-xl text-[#B3B3B3] mb-4">No products found</p>
                 <button
                   onClick={resetFilters}
-                  className="px-6 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg"
+                  className="px-6 py-2 bg-[#4DA6FF] hover:bg-[#3D8FE6] text-white rounded-lg"
                 >
                   Reset Filters
                 </button>
