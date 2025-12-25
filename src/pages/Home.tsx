@@ -4,34 +4,13 @@ import { ArrowRight, Award, Gift, TrendingUp, Star } from 'lucide-react';
 import { ProductCard } from '../components/ProductCard';
 import { products, categories, comboPacks } from '../data/products';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
-import { Carousel } from '../components/Carousel';
 
 export const Home: React.FC = () => {
   const bestSellers = products.filter(p => p.isBestSeller).slice(0, 8);
   const saleProducts = products.filter(p => p.isOnSale).slice(0, 4);
 
-  const carouselSlides = [
-    {
-      src: 'https://images.unsplash.com/photo-1722461073513-534b62957cec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnaWZ0JTIwc2hvcCUyMGludGVyaW9yfGVufDF8fHx8MTc2NDMzNzg4MXww&ixlib=rb-4.1.0&q=80&w=1080',
-      alt: 'New Bismi Gift House - Toys, Gifts & Stationery',
-      title: 'Welcome to New Bismi Gift House',
-      description: 'Discover our amazing collection of toys, gifts, and stationery'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1745954757871-3be53100bad7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZWNvcmF0aXZlJTIwd2FsbCUyMGNsb2Nrc3xlbnwxfHx8fDE3NjQzMzc4ODF8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      alt: 'Beautiful Wall Clocks Collection',
-      title: 'Explore Our Wall Clocks',
-      description: 'Premium collection of decorative and modern wall clocks'
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-[#0F0F0F]">
-      {/* Hero Carousel */}
-      <section className="relative bg-[#1A1A1A] overflow-hidden">
-        <Carousel slides={carouselSlides} autoPlayInterval={4000} />
-      </section>
-
       {/* Featured Categories */}
       <section className="py-16 container mx-auto px-4">
         <h2 className="text-3xl text-center mb-12 text-white">Shop by Category</h2>
@@ -112,7 +91,7 @@ export const Home: React.FC = () => {
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
           {bestSellers.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -126,7 +105,7 @@ export const Home: React.FC = () => {
             <h2 className="text-3xl mb-4 text-white">Special Offers</h2>
             <p className="text-[#B3B3B3]">Limited time deals you don't want to miss</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
             {saleProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

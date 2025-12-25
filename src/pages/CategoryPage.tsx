@@ -13,10 +13,10 @@ export const CategoryPage: React.FC = () => {
 
   if (!category) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-[#0F0F0F] flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl mb-4 text-gray-900 dark:text-gray-100">Category not found</h1>
-          <Link to="/shop" className="text-cyan-600 hover:underline">
+          <h1 className="text-2xl mb-4 text-white">Category not found</h1>
+          <Link to="/shop" className="text-[#4DA6FF] hover:underline">
             Back to Shop
           </Link>
         </div>
@@ -25,13 +25,13 @@ export const CategoryPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-[#0F0F0F]">
       {/* Category Banner */}
-      <div className="bg-gradient-to-br from-cyan-600 to-teal-600 py-16">
+      <div className="bg-gradient-to-br from-[#4DA6FF] to-[#2E86DE] py-16">
         <div className="container mx-auto px-4 text-center">
           <div className="text-6xl mb-4">{category.icon}</div>
           <h1 className="text-4xl md:text-5xl text-white mb-4">{category.name}</h1>
-          <p className="text-cyan-100 text-lg">
+          <p className="text-white/90 text-lg">
             Explore our collection of {category.name.toLowerCase()}
           </p>
         </div>
@@ -42,17 +42,17 @@ export const CategoryPage: React.FC = () => {
         {categoryProducts.length > 0 ? (
           <>
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl text-gray-900 dark:text-gray-100">
+              <h2 className="text-2xl text-white">
                 {categoryProducts.length} Products
               </h2>
               <Link
                 to="/shop"
-                className="text-cyan-600 dark:text-cyan-400 hover:underline"
+                className="text-[#4DA6FF] hover:underline"
               >
                 View All Categories
               </Link>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
               {categoryProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -60,12 +60,12 @@ export const CategoryPage: React.FC = () => {
           </>
         ) : (
           <div className="text-center py-16">
-            <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
+            <p className="text-xl text-[#B3B3B3] mb-4">
               No products available in this category yet
             </p>
             <Link
               to="/shop"
-              className="inline-block px-6 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg"
+              className="inline-block px-6 py-2 bg-[#4DA6FF] hover:bg-[#4DA6FF]/80 text-white rounded-lg"
             >
               Browse All Products
             </Link>
